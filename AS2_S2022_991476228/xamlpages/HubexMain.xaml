@@ -1,0 +1,77 @@
+﻿<Window x:Class="AS2_FerkoS2022.xamlpages.HubexMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AS2_FerkoS2022.xamlpages"
+        mc:Ignorable="d" ResizeMode="NoResize"
+        Title="Hubex Main Portal" Height="600" Width="1000"  Background="#FFEDD3">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--Displaying logo-->
+        <Image Source="pack://application:,,,/images/hubex_logo.png" Grid.Column="2" Grid.ColumnSpan="2" Margin="100,10,-54,107" Grid.RowSpan="2"/>
+        <StackPanel Grid.Row="0"  Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="0,0,112,95">
+            <!--Displaying welcome message with user name from previous window-->
+            <Label Content="Welcome, " x:Name="lblUsername" Style="{StaticResource lblHeading}" Width="581" Margin="0,25,5,10"/>
+            <!--Telling user what to do on the current page-->
+            <Label Content="Please select one of the following options to continue" Style="{StaticResource lblsfortxtbx}" />
+        </StackPanel>
+        
+        <!--Grouping all buttons and comboboxes together-->
+        <GroupBox Style="{StaticResource Menu}" Header="Main Menu" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="108,15,125,10" >
+            <Grid Margin="0,0,-2,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="231*"/>
+                    <ColumnDefinition Width="231*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Button to display all employees in Southern Northwind Division-->
+                <Button x:Name="btnAllEmployees" Grid.Column="0" Content="Display All Employees" Click="btnGetEmployees_Click" Style="{StaticResource MenuButtons}" Margin="5,22,10,48" />
+
+                <!--Button to search for employee by name-->
+                <Button x:Name="btnEmployeeByName" Grid.Column="1" Content="Find An Employee" Click="btnEmployeeByName_Click" Style="{StaticResource MenuButtons}" Margin="10,22,7,48" />
+
+                <!--Button to display all orders-->
+                <Button x:Name="btnAllOrders"  Content="See All Orders" Click="btnGetOrders_Click" Style="{StaticResource MenuButtons}" Margin="5,106,10,115" Grid.Column="0" Grid.RowSpan="2"/>
+
+                <!--Button to exit the application-->
+                <Button x:Name="btnExit"  Content="Log Out" Click="btnExit_Click" Style="{StaticResource MenuButtons}" Margin="10,106,5,115" Grid.Column="1" Grid.RowSpan="2"/>
+
+                <!--Stackpanel to display a first combobox-->
+                <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Margin="0,82,0,19">
+                    <Label Content="Filter Employee By Name" Style="{StaticResource lblsfortxtbx}"/>
+                    <!--ComboBox to filter employees by name-->
+                    <ComboBox x:Name="cbxFilterEmployees" Grid.Row="2" Grid.Column="0" Style="{StaticResource filterCbx}" SelectedIndex="0" />
+                    <!--Button to click if user wants to search with employee filter-->
+                    <Button x:Name="btnFilterEmp" Content="Search by Filter" Click="btnFilterEmp_click" Style="{StaticResource MenuButtons}" Height="50" Margin="5,10,10,0"/>
+                </StackPanel>
+
+                <!--Stackpanel to display second combobox-->
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="6,82,-4,-11" Grid.RowSpan="2">
+                    <Label Content="Filter Orders By Employee" Style="{StaticResource lblsfortxtbx}"/>
+                    <!--Combobox to filter orders based on specified employee-->
+                    <ComboBox x:Name="cbxFilterOrders" Style="{StaticResource filterCbx}" SelectedIndex="5" />
+                    <!--Button to click if user wants to search for orders by a specific employee-->
+                    <Button x:Name="btnFilterOrder" Content="Search by Filter" Click="btnFilterOrder_click" Style="{StaticResource MenuButtons}" Height="50" Margin="5,10,10,0"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
