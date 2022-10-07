@@ -1,6 +1,7 @@
 # Hub Ex Order Portal
 A simulation of an order and employee portal for a mock company.
   --Based off of the Northwind Database provided via Microsoft
+  --Originally coded as a second assignment for school
 
 
 Short Description: An order and employee search and retrieve protal using C# for a mock company.
